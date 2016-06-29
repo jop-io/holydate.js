@@ -174,6 +174,16 @@ Holydate.prototype.offset = function(offset) {
 };
 
 /**
+ * Sätter en högtidsdag till röd helgdag.
+ * 
+ * @returns {Holydate.prototype}
+ */
+Holydate.prototype.red = function() {
+    this.register[this.index].red = true;
+    return this;
+};
+
+/**
  * Beräkar en tidsstämpel för ett fast datum.
  * 
  * @param {String} index Namn på dagen
@@ -292,7 +302,8 @@ Holydate.prototype.set = function(name) {
             month: null,
             day: null,
             occurrence: null,
-            offset: null
+            offset: null,
+            red : false
         };
     }
     return this;
@@ -313,13 +324,13 @@ Holydate.prototype.get = function(date) {
     for (index in this.register) {
         item = this.register[index];
         if (item.type === 'date' && ts === this.calcDate(index, item, ts)) {
-            result.push(index);
+            result.push({name: index, red: item.red});
         }
         if (item.type === 'weekday' && ts === this.calcWeekday(index, item, ts)) {
-            result.push(index);
+            result.push({name: index, red: item.red});
         }
         if (item.type === 'easter' && ts === this.calcEaster(item, ts)) {
-            result.push(index);
+            result.push({name: index, red: item.red});
         }
     }
     return result.length > 0 ? result : null;
