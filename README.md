@@ -46,27 +46,29 @@ Högtidsdagar på fasta veckodagar har vanligtvis olika regler för när de infa
 
 &ast; *Om inte `.first()` eller `.last()` specificeras, eftersök alltid den första förekommande veckodagen.*
 
-#### Exempel för Midsommarafton
-Midsommarafton infaller alltid på en fredag, som tidigast den 19 juni:
+#### Exempel för första förekomsten av en veckodag
 ```javascript
 var hd = new Holydate();
+
+// Midsommarafton infaller alltid på en fredag, som tidigast den 19 juni
 // Utgå ifrån månad 6 (jun) och dag 19, hitta veckodag 5 (fre)
 hd.set('Midsommarafton').weekday(5).month(6).day(19);
-```
 
-#### Exempel för Alla helgons dag
-Alla helgons dag infaller alltid på en lördag, som tidigast den 31 oktober:
-```javascript
-var hd = new Holydate();
+// Alla helgons dag infaller alltid på en lördag, som tidigast den 31 oktober
 // Utgå ifrån månad 10 (okt) och dag 31, hitta veckodag 6 (lör)
-hd.set('Midsommarafton').weekday(6).month(10).day(31);
+hd.set('Alla helgons dag').weekday(6).month(10).day(31);
+
+// Första advent infaller alltid på en söndag, som tidigast den 27 november
+// Utgå ifrån månad 11 (nov) och dag 27, hitta veckodag 7 (sön)
+hd.set('Första advent').weekday(7).month(11).day(27);
 ```
 
-#### Exempel för Sveriges riksdagsval
-Sveriges riksdagsval hålls alltid den andra söndagen i september (notera att detta endast sker var fjärde år). För att specificera att det är just den andra söndagen som eftersök kedjas funktionen `.interval()`:
+#### Exempel för första förekomsten av en veckodag efter ett intervall
+Fars dag firas alltid den andra söndagen i november. För att specificera att det är just den andra söndagen som eftersök kedjas funktionen `.interval(2)`:
 
 ```javascript
 var hd = new Holydate();
-// Utgå ifrån månad 9 (sep) och dag 1, hitta den andra förekomsten (2) av veckodag 7 (sön)
-hd.set('Midsommarafton').weekday(6).interval(2).month(9).day(1);
+// Fars dag infaller alltid den andra söndagen i november
+// Utgå ifrån månad 11 (nov) och dag 1, hitta den andra förekomsten (2) av veckodag 7 (sön)
+hd.set('Fars dag').weekday(7).interval(2).month(11).day(1);
 ```
