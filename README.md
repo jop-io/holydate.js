@@ -72,3 +72,13 @@ var hd = new Holydate();
 // Utgå ifrån månad 11 (nov) och dag 1, hitta den andra förekomsten (2) av veckodag 7 (sön)
 hd.set('Fars dag').weekday(7).interval(2).month(11).day(1);
 ```
+
+#### Exempel för sista förekomsten av en veckodag
+Mors dag firas alltid den sista söndagen i maj. För att specificera att det är just den sista söndagen som eftersök kedjas funktionen `.last()`:
+
+```javascript
+var hd = new Holydate();
+// Mors dag infaller alltid den sista söndagen i maj
+// Utgå ifrån månad 5 (maj) och dag 1, hitta den sista förekomsten av veckodag 7 (sön)
+hd.set('Fars dag').weekday(7).last().month(5).day(1);
+```
