@@ -30,22 +30,27 @@ hd.set('Julafton').date().month(12).day(24);
 ```
 
 ### .get()
-För att kontrollera om ett datum är en högtidsdag används funktionen `.get()`. Beroende på vilka högtidsdagar som har registrerats kan ett och samma datum ha fler än en bemäning. Av denna anledning returneras en array innehållades namnen på de högtidsdagar som matchar angivet datum. Om angivet datum inte matchar någon av de registrerade högtidsdagarna returneras istället `null`.
+För att kontrollera om ett datum är en högtidsdag används funktionen `.get()`. Beroende på vilka högtidsdagar som har registrerats kan ett och samma datum ha fler än en bemäning. Av denna anledning returneras en array innehållades objekt med namnen och helgdagsstatus på de högtidsdagar som matchar angivet datum. Om angivet datum inte matchar någon av de registrerade högtidsdagarna returneras istället `null`.
 
 ```javascript
 var hd = new Holydate();
 
-hd.set('Första maj').date().month(5).day(1);
+hd.set('Första maj').date().month(5).day(1).red();
 hd.set('Nyårsafton').date().month(12).day(31);
 hd.set('Min födelsedag').date().month(12).day(31);
 
-hd.get('2016-05-01'); // Returnerar ["Första maj"]
-hd.get('2016-12-24'); // Returnerar ["Nyårsafton", "Min födelsedag"]
+hd.get('2016-05-01'); // Returnerar [{name : "Första maj", red : true}]
+hd.get('2016-12-24'); // Returnerar [{name : "Nyårsafton", red : false}, {name : "Min födelsedag", red : false}]
 hd.get('2016-10-01'); // Returnerar null
 ```
 
 ## Hantering av röda helgdagar
-ad
+För att sätta en viss högtidsdag till en röd helgdag kedjas `.red()`:
+```javascript
+var hd = new Holydate();
+
+hd.set('Första maj').date().month(5).day(1).red();
+```
 
 ## Typer för datumberäkning
 
@@ -132,44 +137,45 @@ hd.set('Mors dag').weekday(7).last().month(5).day(1);
 ```
 
 # Förteckning över svenska högtidsdagar
-Nedan följer ett exempel över svenska högtidsdagar. Notera att många av dagarna i listan inte är röda helgdagar.
+Nedan följer ett exempel över svenska högtidsdagar.
 
 ```javascript
 var hd = new Holydate();
 
 // Högtidsdagar på fasta datum
-hd.set('Nyårsdagen').date().month(1).day(1);
+hd.set('Nyårsdagen').date().month(1).day(1).red();
 hd.set('Trettondagsafton').date().month(1).day(5);
-hd.set('Trettondedag jul').date().month(1).day(6);
+hd.set('Trettondedag jul').date().month(1).day(6).red();
 hd.set('Alla hjärtans dag').date().month(2).day(14);
 hd.set('Valborgsmässoafton').date().month(4).day(30);
-hd.set('Första maj').date().month(5).day(1);
-hd.set('Sveriges nationaldag').date().month(6).day(6);
-hd.set('Julafton').date().month(12).day(24);
-hd.set('Juldagen').date().month(12).day(25);
-hd.set('Annandag jul').date().month(12).day(26);
+hd.set('Första maj').date().month(5).day(1).red();
+hd.set('Sveriges nationaldag').date().month(6).day(6).red();
+hd.set('Julafton').date().month(12).day(24).red();
+hd.set('Juldagen').date().month(12).day(25).red();
+hd.set('Annandag jul').date().month(12).day(26).red();
 hd.set('Nyårsafton').date().month(12).day(31);
 
 // Högtidsdagar relaterade till påskdagen
 hd.set('Fettisdagen').easter().offset(-47);
 hd.set('Askonsdagen').easter().offset(-46);
 hd.set('Palmsöndagen').easter().offset(-7);
-hd.set('Dymmelonsdagen').easter().offset(-3);
-hd.set('Skärtorsdagen').easter().offset(-2);
-hd.set('Långfredagen').easter().offset(-1);
-hd.set('Påskdagen').easter().offset(0);
-hd.set('Annandag påsk').easter().offset(1);
-hd.set('Kristi himmelfärdsdag').easter().offset(39);
+hd.set('Dymmelonsdagen').easter().offset(-4);
+hd.set('Skärtorsdagen').easter().offset(-3);
+hd.set('Långfredagen').easter().offset(-2).red();
+hd.set('Påskafton').easter().offset(-1);
+hd.set('Påskdagen').easter().offset(0).red();
+hd.set('Annandag påsk').easter().offset(1).red();
+hd.set('Kristi himmelfärdsdag').easter().offset(39).red();
 hd.set('Pingstafton').easter().offset(48);
-hd.set('Pingsdagen').easter().offset(49);
+hd.set('Pingsdagen').easter().offset(49).red();
 
 // Högtidsdagar på fasta veckodagar, med rörliga datum
 hd.set('Jungfru Marie bebådelsedag').weekday(7).month(3).day(22);
 hd.set('Mors dag').weekday(7).month(5).day(1).last();
-hd.set('Midsommarafton').weekday(5).month(6).day(19);
-hd.set('Midsommardagen').weekday(6).month(6).day(20);
+hd.set('Midsommarafton').weekday(5).month(6).day(19).red();
+hd.set('Midsommardagen').weekday(6).month(6).day(20).red();
 hd.set('Allhelgonaafton').weekday(5).month(10).day(30);
-hd.set('Alla helgons dag').weekday(6).month(10).day(31);
+hd.set('Alla helgons dag').weekday(6).month(10).day(31).red();
 hd.set('Fars dag').weekday(7).month(11).day(1).interval(2);
 hd.set('Första advent').weekday(7).month(11).day(27);
 hd.set('Andra advent').weekday(7).month(12).day(4);
