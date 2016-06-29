@@ -1,6 +1,16 @@
 # holydate.js
 JS-klass för att hantera namn på högtidsdagar
 
+# Demo
+[http://jop.io/projects/holydate-js](http://jop.io/projects/holydate-js)
+
+# Installation
+```html
+<script src="holydate.min.js"></script>
+```
+
+# Dokuemntation
+
 ## Registrera och kontrollera högtidsdagar
 Klassen innehåller två grundmetoder, `.set()` för att registrera högtidsdagar och `.get()` för att kontrollera om ett datum är en högtidsdag.
 
