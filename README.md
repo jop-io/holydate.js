@@ -9,6 +9,7 @@ För att registrera en högtidsdag används funktionen `.set()`. Olika typer av 
 
 ```javascript
 var hd = new Holydate();
+
 hd.set('Julafton').date().month(12).day(24);
 ```
 
@@ -17,6 +18,7 @@ För att kontrollera om ett datum är en högtidsdag används funktionen `.get()
 
 ```javascript
 var hd = new Holydate();
+
 hd.set('Första maj').date().month(5).day(1);
 hd.set('Nyårsafton').date().month(12).day(31);
 hd.set('Min födelsedag').date().month(12).day(31);
@@ -36,6 +38,7 @@ Används för att beräkna högtidsdagar som alltid infaller på fasta datum, te
 För att registrera högtidsdagar på fasta datum kedjas `.date()` till `.month()` och `.day()`, tex:
 ```javascript
 var hd = new Holydate();
+
 hd.set('Julafton').date().month(12).day(24);
 hd.set('Första maj').date().month(5).day(1);
 hd.set('Nationaldagen').date().month(6).day(6);
@@ -48,6 +51,7 @@ För att registrera högtidsdagar relativa till Påskdagens datum, kedjas `.east
 
 ```javascript
 var hd = new Holydate();
+
 hd.set('Askonsdagen').easter().offset(-46);
 hd.set('Långfredagen').easter().offset(-1);
 hd.set('Påskdagen').easter(); // Ingen avvikelse behöver anges för påskdagen
@@ -93,6 +97,7 @@ Fars dag firas alltid den andra söndagen i november. För att specificera att d
 
 ```javascript
 var hd = new Holydate();
+
 // Fars dag infaller alltid den andra söndagen i november
 // Utgå ifrån månad 11 (nov) och dag 1, hitta den andra förekomsten (2) av veckodag 7 (sön)
 hd.set('Fars dag').weekday(7).interval(2).month(11).day(1);
@@ -103,6 +108,7 @@ Mors dag firas alltid den sista söndagen i maj. För att specificera att det ä
 
 ```javascript
 var hd = new Holydate();
+
 // Mors dag infaller alltid den sista söndagen i maj
 // Utgå ifrån månad 5 (maj) och dag 1, hitta den sista förekomsten av veckodag 7 (sön)
 hd.set('Mors dag').weekday(7).last().month(5).day(1);
