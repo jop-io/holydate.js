@@ -125,6 +125,8 @@ hd.set('Mors dag').weekday(7).last().month(5).day(1);
 ```
 
 # Förteckning över svenska högtidsdagar
+Nedan följer ett exempel över svenska högtidsdagar. Notera att många av dagarna i listan inte är röda helgdagar.
+
 ```javascript
 var hd = new Holydate();
 
@@ -168,3 +170,8 @@ hd.set('Tredje advent').weekday(7).month(12).day(11);
 hd.set('Fjärde advent').weekday(7).month(12).day(18);
 ```
 
+# Uppdateringar
+* Inga registrerade
+
+# Licens
+Formator.js omfattas av licensformen [MIT](https://opensource.org/licenses/MIT "The MIT License"). Varsågod!
