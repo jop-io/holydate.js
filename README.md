@@ -1,6 +1,12 @@
 # holydate.js
 JS-klass för att hantera namn på högtidsdagar
 
+* [Demo](https://github.com/jop-io/holydate.js/blob/master/README.md#demo)
+* [Installation](https://github.com/jop-io/holydate.js/blob/master/README.md#installation)
+* [Dokuemntation](https://github.com/jop-io/holydate.js/blob/master/README.md#dokuemntation)
+* [Uppdateringar](https://github.com/jop-io/holydate.js/blob/master/README.md#uppdateringar)
+* [Licens](https://github.com/jop-io/holydate.js/blob/master/README.md#licens)
+
 # Demo
 [http://jop.io/projects/holydate-js](http://jop.io/projects/holydate-js)
 
