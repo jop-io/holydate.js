@@ -44,7 +44,8 @@ hd.get('2016-12-24'); // Returnerar ["Nyårsafton", "Min födelsedag"]
 hd.get('2016-10-01'); // Returnerar null
 ```
 
-
+## Hantering av röda helgdagar
+ad
 
 ## Typer för datumberäkning
 
