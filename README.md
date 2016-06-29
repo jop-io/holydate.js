@@ -1,5 +1,5 @@
 # holydate.js
-JS-klass för att hantera namn på högtidsdagar
+Holydate.js är en klass för att hantera och kontrollera om datum är högtids- eller helgdagar. Klassen är användbar tex. för olika typer av kalendrar eller för att presentera ett företags öppettider.
 
 * [Demo](https://github.com/jop-io/holydate.js/blob/master/README.md#demo)
 * [Installation](https://github.com/jop-io/holydate.js/blob/master/README.md#installation)
