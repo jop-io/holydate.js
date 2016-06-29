@@ -1,6 +1,31 @@
 # holydate.js
 JS-klass för att hantera namn på högtidsdagar
 
+## Registrera och kontrollera högtidsdagar
+Klassen innehåller två grundmetoder, `.set()` för att registrera högtidsdagar och `.get()` för att kontrollera om ett datum är en högtidsdag.
+
+### .set()
+För att registrera en högtidsdag används funktionen `.set()`. Olika typer av högtidsdagar har olika regler för vilket datum de infaller, se [typer för datumberäkning](https://github.com/jop-io/holydate.js#typer-för-datumberäkning) för mer information.
+
+```javascript
+var hd = new Holydate();
+hd.set('Julafton').date().month(12).day(24);
+```
+
+### .get()
+För att kontrollera om ett datum är en högtidsdag används funktionen `.get()`. Beroende på vilka högtidsdagar som har registrerats kan ett och samma datum ha fler än en bemäning. Av denna anledning returneras en array innehållades namnen på de högtidsdagar som matchar angivet datum. Om angivet datum inte matchar någon av de registrerade högtidsdagarna returneras istället `null`.
+
+```javascript
+var hd = new Holydate();
+hd.set('Första maj').date().month(5).day(1);
+hd.set('Nyårsafton').date().month(12).day(31);
+hd.set('Min födelsedag').date().month(12).day(31);
+
+hd.get('2016-05-01'); // Returnerar ["Första maj"]
+hd.get('2016-12-24'); // Returnerar ["Nyårsafton", "Min födelsedag"]
+hd.get('2016-10-01'); // Returnerar null
+```
+
 
 
 ## Typer för datumberäkning
