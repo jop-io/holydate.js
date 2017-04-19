@@ -21,7 +21,9 @@ Holydate.js är en klass för att hantera och kontrollera om datum är högtids-
 Klassen innehåller två grundmetoder, `.set()` för att registrera högtidsdagar och `.get()` för att kontrollera om ett datum är en högtidsdag.
 
 ### .set()
-För att registrera en högtidsdag används funktionen `.set()`. Olika typer av högtidsdagar har olika regler för vilket datum de infaller, se [typer för datumberäkning](https://github.com/jop-io/holydate.js#typer-för-datumberäkning) för mer information.
+För att registrera en högtidsdag används funktionen `.set()`.
+
+Högtidsdagar har olika regler för vilket datum de infaller på, se [typer för datumberäkning](https://github.com/jop-io/holydate.js#typer-för-datumberäkning) för mer information.
 
 ```javascript
 var hd = new Holydate();
@@ -54,7 +56,7 @@ hd.set('Första maj').date().month(5).day(1).red();
 
 ## Typer för datumberäkning
 
-###.date()
+### .date()
 Används för att beräkna högtidsdagar som alltid infaller på fasta datum, tex. *Julafton*, *Första maj* och *Sveriges nationaldag*.
 
 För att registrera högtidsdagar på fasta datum kedjas `.date()` till `.month()` och `.day()`, tex:
@@ -66,7 +68,7 @@ hd.set('Första maj').date().month(5).day(1);
 hd.set('Nationaldagen').date().month(6).day(6);
 ```
 
-###.easter()
+### .easter()
 Används för att beräkna högtidsdagar som infaller relativt till Påskdagen, tex. *Askonsdagen*, *Långfredagen*, *Påskdagen*, *Kristi himmelfärdsdag* och *Pingsdagen*.
 
 För att registrera högtidsdagar relativa till Påskdagens datum, kedjas `.easter()` till `.offset()`, tex:
@@ -81,7 +83,7 @@ hd.set('Kristi himmelfärdsdag').easter().offset(39);
 hd.set('Pingsdagen').easter().offset(49);
 ```
 
-###.weekday()
+### .weekday()
 Används för att beräkna högtidsdagar som alltid infaller på fast veckodagar (mån-sön), men på varierade datum, tex. *Midsommarafton*, *Alla helgons dag* och *Första advent*.
 
 Vid användning av `.weekday()` måste veckodagens index anges som argument (1=mån ... 7=sön), tex. `.weekday(5)` för en fredag.
